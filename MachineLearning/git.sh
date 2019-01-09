@@ -8,6 +8,7 @@
 #git init
 git add .
 git commit -m $1
-#git remote add origin https://github.com/bokoio/machinelearning.git
+#git remote add origin git@github.com:bokoio/machinelearning.git
+#git remote remove origin
 #git remote -v
 git push origin master
