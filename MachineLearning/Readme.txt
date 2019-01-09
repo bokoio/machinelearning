@@ -312,7 +312,31 @@ S4A28 - Simple Linear Regression in Python Step3:
 y_pred //vector que ira prever as dependentes variaveis
 
 
-S4A28 - Simple Linear Regression in Python Step4:
+S4A29 - Simple Linear Regression in Python Step4:
 #Visualising the Training set results
 OS resultados estao nas imagens, e esse é um modelo linear de machineLearning.
 que prediz os salarios dos empregados.
+
+
+S4A30 - Simple Linear Regression in R Step1:
+
+S4A31 - Simple Linear Regression in R Step2:
+Aqui é onde estamos treinando o nosso modelo(Taining Test)
+~ o til representa proporçao.
+no console do R digitando:
+summary(regressor) //variavel com os dados da regreçao
+nos retorna um sumario dos dados elaborados por:
+lm(formula = Salary ~ YearsExperience,
+                data = training_set)
+
+é importanto verificar quantas estrelas a variavel recebeu.
+
+S4A32 - Simple Linear Regression in R Step3:
+#Predicting the Test set results
+Previsao de resultados
+
+
+S4A33 - Simple Linear Regression in R Step4:
+para gerar os graficos em R foi necessario importar uma biblioteca:
+ggplot2
+install.packages('ggplot2')
