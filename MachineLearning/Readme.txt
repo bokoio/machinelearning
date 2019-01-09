@@ -252,6 +252,54 @@ test_set[, 2:3] = scale(test_set[, 2:3])
 
 
 
-S3A21 - Data Preprocessing Template
+S2A21 - Data Preprocessing Template
 
 Refactoring do template criado em R e Python
+
+
+S4A22 - How to get the DataSet
+https://www.superdatascience.com/machine-learning/
+Section 4. Simple Linear Regression
+Simple_Linear_Regression.zip
+
+S4A23 - Dataset and Business problem Description:
+dataset tem somente 2 colunas A e B (YearsExperience, Salary)
+
+Qual è a co-relaçao entre os anos de experiencia e o salario?
+
+S4A24 - Simple Linear Regression Intuition Step1:
+Formula para o simple linear regression:
+y = B0 + B1*X1
+
+Y = dependent variable(dv) é o que esta se tentando explicar(como os salarios mudam com os anos de experiencia no trabalho.)
+X = Independet variable(iv) 
+B1 = Coeficiente para a variavel independente X1
+B0 = Constante
+
+y = B0 + B1*X1
+Salary = b0 + b1 * Experience
+B0 = 30k (pessoa sem nenhuma experiencia)
+
+
+S4A25 - Simple Linear Regression Intuition Step2:
+
+para chegar no B0 que é a linha inicial a formula é a seguinte:
+sum (y - y^)² -> min
+y -salario mais alto
+y^ -diferença entre o salario mais alto e a linha.
+
+
+S4A26 - Simple Linear Regression in Python Step1:
+
+
+Fizemos somente a preparaçao dos dados como fizemos no modelo anterior com o preprocessing_template.
+
+(limpar as variaveis toda a vez que trocar o DB de lugar.)
+
+S4A27 - Simple Linear Regression in Python Step2:
+
+
+
+
+
+
