@@ -297,9 +297,16 @@ Fizemos somente a preparaçao dos dados como fizemos no modelo anterior com o pr
 (limpar as variaveis toda a vez que trocar o DB de lugar.)
 
 S4A27 - Simple Linear Regression in Python Step2:
+Fitting Simple Linear Regrssion to the Training set
+
+#Fitting Simple Linear Regrssion to the Training set
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, Y_train)
 
 
+S4A28 - Simple Linear Regression in Python Step3:
 
+#Predicting the Test set results
 
-
-
+y_pred //vector que ira prever as dependentes variaveis
