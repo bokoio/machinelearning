@@ -310,3 +310,9 @@ S4A28 - Simple Linear Regression in Python Step3:
 #Predicting the Test set results
 
 y_pred //vector que ira prever as dependentes variaveis
+
+
+S4A28 - Simple Linear Regression in Python Step4:
+#Visualising the Training set results
+OS resultados estao nas imagens, e esse é um modelo linear de machineLearning.
+que prediz os salarios dos empregados.

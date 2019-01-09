@@ -30,12 +30,9 @@ regressor.fit(X_train, Y_train)
 #Predicting the Test set results
 y_pred = regressor.predict(X_test)
 
-
-
-
-
-
-
+#Visualising the Training set results
+plt.scatter(X_train, Y_train, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'blue')
 
 
 
