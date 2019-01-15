@@ -340,3 +340,161 @@ S4A33 - Simple Linear Regression in R Step4:
 para gerar os graficos em R foi necessario importar uma biblioteca:
 ggplot2
 install.packages('ggplot2')
+
+
+
+S5A35 - Dataset and Business problem Description For Multiple Linear Regression
+DataSet: 50_Startups.csv
+O dataset possui somente 5 colunas:
+R&D Spend,	Administration,	Marketing Spend,	State,	Profit
+
+
+
+Criar um modelo para prever em quais empresas investir com os dados que temos:
+Necessidade de saber se existe alguma corelaçao entre o lucro e o investimento em R&D ou em Admin ou em Marketing e em qual estado as empresas estao tendo melhores lucros.
+
+
+
+S5A36 - Multiple Linear Regression intuition Step1:
+
+A foruma é parecida porem dessa vez sao adicionados mais pares de comparaçao de acordo com a quantidade de variaveis independentes que estao no modelo:
+y = B0 + B1*X1 + B2*X2 + B3*X3 + ....+Bn*Xn
+
+S5A37 - Multiple Linear Regression intuition Step2:
+
+Assumptions(pressupostos) of a Linear Regression:
+	1) Linearity
+	2) Homoscedasticity
+	3) Multivariae normality
+	4) Independence of errors
+	5) Lack of multicollinerity
+
+Para construir um bom modelo linear é preciso que essas 5 respostas sejam verdadeiras.
+
+
+S5A38 - Multiple Linear Regression intuition Step3:
+
+Dumy variables:
+Dependente = Profit
+Independentes = R&D Spend,	Administration,	Marketing Spend,	State
+
+Criar um Linear Regression
+
+Profit,  R&D Spend,	Administration,	Marketing Spend,	State(categorical data)
+y=b0+     B1*X1   +   B2*X2        + B3*X3          + ????
+
+Dammy variables funcionam como um boolean para identificar um dado de categoria
+é o mesmo que ja foi feito antes:
+New York | California 
+  1      |   0   
+  0      |   1   
+  0      |   1   
+  1      |   0   
+  .....
+  .....
+y=b0+     B1*X1   +   B2*X2        + B3*X3          + B4*D1 (d for dummy)
+
+
+S5A38 - Multiple Linear Regression intuition Step4:
+Pegadinha das variaveis dummy:
+Inserindo todas as variaveis dummy no mesmo modelo, nao sera possivel distinguir os efeitos de D1 sobre D2 nao funcionando corretamente.
+Para isso sempre omitir uma das variaveis dummy, por exemplo:
+no dataset dessa aula esistem 3 estados:
+New York
+California
+Florida
+cada um gera uma dummy, no modelo devemos inserir somente 2 variaveis no modelo.
+
+
+S5A40 - Prerequisites: What is the P-Value:
+https://www.wikihow.com/Calculate-P-Value:
+P value is a statistical measure that helps scientists determine whether or not their hypotheses are correct. P values are used to determine whether the results of their experiment are within the normal range of values for the events being observed. Usually, if the P value of a data set is below a certain pre-determined amount (like, for instance, 0.05), scientists will reject the "null hypothesis" of their experiment - in other words, they'll rule out the hypothesis that the variables of their experiment had no meaningful effect on the results. Today, p values are usually found on a reference table by first calculating a chi square value.
+
+https://www.mathbootcamps.com/what-is-a-p-value/
+https://www.youtube.com/watch?v=eyknGvncKLw
+In statistics, we always seem to come across this p-value thing. If you have been studying for a while, you are used to the idea that a small p-value makes you reject the null hypothesis. But what if I asked you to explain exactly what that number really represented!?
+
+Understanding the p-value will really help you deepen your understanding of hypothesis testing in general. Before I talk about what the p-value is, let’s talk about what it isn’t.
+
+The p-value is NOT the probability the claim is true. Of course, this would be an amazing thing to know! Think of it “there is 10% chance that this medicine works”. Unfortunately, this just isnt the case. Actually determining this probability would be really tough if not impossible!
+The p-value is NOT the probability the null hypothesis is true. Another one that seems so logical it has to be right! This one is much closer to the reality, but again it is way too strong of a statement.
+The p-value is actually the probability of getting a sample like ours, or more extreme than ours IF the null hypothesis is true. So, we assume the null hypothesis is true and then determine how “strange” our sample really is. If it is not that strange (a large p-value) then we don’t change our mind about the null hypothesis. As the p-value gets smaller, we start wondering if the null really is true and well maybe we should change our minds (and reject the null hypothesis).
+
+A little more detail: A small p-value indicates that by pure luck alone, it would be unlikely to get a sample like the one we have if the null hypothesis is true. If this is small enough we start thinking that maybe we aren’t super lucky and instead our assumption about the null being true is wrong. Thats why we reject with a small p-value.
+
+A large p-value indicates that it would be pretty normal to get a sample like ours if the null hypothesis is true. So you can see, there is no reason here to change our minds like we did with a small p-value.
+
+S5A41 - Multiple Linear Regression intuition Step5:
+
+Building A Model(Step by Step):
+
+
+Selecionar bem as colunas candidatas a serem variaveis Dependentes:
+Mas porque nao usar todas as variaveis:
+
+1) Grabage in Garbage Out
+2) Se torna um problema quando temos uma grande quantidade de variaveis para explicar(a matematica e os resultados por traz dessas previsoes feitas por essa variaveis)
+
+5 Metodos de construçao de modelos:
+PDF explicando esta em /home/pippo/Dev/MachineLearning/Machine Learning A-Z Template Folder/Part 2 - Regression/Section 5 - Multiple Linear Regression/Step-by-step-Blueprints-For-Building-Models.pdf
+
+
+1) All-in
+2) Backward Elimination      -|
+3) Forward Selectio           |- Stepwise Regression 
+4) Bidirectional Elimination -|
+5) Score Comparsion
+
+
+O modelo que iremos construir é do tipo Backward Elimination
+
+
+S5A43 - Multiple Linear Regression intuition In Python Step2:
+
+DataPrecessing;
+...
+#Avoiding the dummy variable Trap
+#Nao é necessario fazer manualmente a libreria faz isso por nos mas para exemplo vale:
+X = X[:, 1:]
+...
+
+S5A44 - Multiple Linear Regression intuition In Python Step3:
+
+# Fitting Multiple Linear Regression  to the Training set
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, Y_train)
+
+
+#Predicting the Test set results
+y_pred = regressor.predict(X_test)
+
+
+
+S5A45 - Multiple Linear Regression intuition In Python Backward Elimination Prepare:
+
+# Building the optimal model using Backward Elimination
+import statsmodels.formula.api as sm 
+
+
+S5A46 - Multiple Linear Regression intuition In Python Backward Elimination HomeWork:
+#Backwad Elimination
+
+#Building the optimal model using Backward Elimination
+import statsmodels.formula.api as sm
+X = np.append(arr =np.ones((50, 1)).astype(int) , values =  X ,axis = 1)
+X_opt = X[:, [0,1,2,3,4,5]]
+regressor_OLS = sm.OLS(endog = y ,exog = X_opt).fit()
+regressor_OLS.summary()
+X_opt = X[:, [0,1,3,4,5]]
+regressor_OLS = sm.OLS(endog = y ,exog = X_opt).fit()
+regressor_OLS.summary()
+X_opt = X[:, [0,3,4,5]]
+regressor_OLS = sm.OLS(endog = y ,exog = X_opt).fit()
+regressor_OLS.summary()
+X_opt = X[:, [0,3,5]]
+regressor_OLS = sm.OLS(endog = y ,exog = X_opt).fit()
+regressor_OLS.summary()
+X_opt = X[:, [0,3]]
+regressor_OLS = sm.OLS(endog = y ,exog = X_opt).fit()
+regressor_OLS.summary()
