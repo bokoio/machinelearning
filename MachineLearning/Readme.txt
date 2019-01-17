@@ -498,3 +498,173 @@ regressor_OLS.summary()
 X_opt = X[:, [0,3]]
 regressor_OLS = sm.OLS(endog = y ,exog = X_opt).fit()
 regressor_OLS.summary()
+
+
+
+S5A49 - Multiple Linear Regression In R Step1:
+Trasnformar texto em categorical data
+
+dataset$State = factor(dataset$State,
+                         levels = c('New York', 'California', 'Florida'),
+                         labels = c(1, 2, 3))
+
+
+S5A50 - Multiple Linear Regression In R Step2:
+
+
+A formula para o multi linear regression:
+
+Profit é igual a combinaçao linear das variaveis independentes (no caso sao as 4 primeiras colunas do banco)
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State)
+Forma sintetizada de escrever a mesma formula
+regressor = lm(formula = Profit ~ .)
+
+no terminal summary(regressor)
+retornam dados, uma parte muito importante é o trexo abaixo:
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      4.965e+04  7.637e+03   6.501 1.94e-07 ***
+R.D.Spend        7.986e-01  5.604e-02  14.251 6.70e-16 ***
+Administration  -2.942e-02  5.828e-02  -0.505    0.617    
+Marketing.Spend  3.268e-02  2.127e-02   1.537    0.134    
+State2           1.213e+02  3.751e+03   0.032    0.974    
+State3           2.376e+02  4.127e+03   0.058    0.954    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Indica os valores recebidos apos a aplicaçao da formula
+quanto menor melhor.
+No caso temos um valor com 3 estrelas esse é o valor indicado para ser usado.
+
+Isso quer dizer que o melhor tipo de investimento é em empresas que tenham bastante investimento em R & D
+pois esse tipo de investimento esta ligado a maior lucratividade.
+
+Olhando para esses resultados a formula poderia ser escrita dessa forma:
+regressor = lm(formula = Profit ~ R.D.Spend, 
+              data = training_set)
+Se tornado uma linear regression
+
+S5A51 - Multiple Linear Regression In R Step3:
+
+#Predicting the Test set results
+Predict results:
+
+y_pred = predict(regressor,newdata = test_set)
+
+
+S5A52 - Multiple Linear Regression In R Backward Elimination HomeWork:
+
+
+#Building the optimal model using Backward Elimination
+
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,
+               data = dataset)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,
+               data = dataset)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,
+               data = dataset)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend ,
+               data = dataset)
+summary(regressor)
+
+if you are also interested in an automatic implementation of Backward Elimination in R, here it is:
+
+backwardElimination <- function(x, sl) {
+    numVars = length(x)
+    for (i in c(1:numVars)){
+      regressor = lm(formula = Profit ~ ., data = x)
+      maxVar = max(coef(summary(regressor))[c(2:numVars), "Pr(>|t|)"])
+      if (maxVar > sl){
+        j = which(coef(summary(regressor))[c(2:numVars), "Pr(>|t|)"] == maxVar)
+        x = x[, -j]
+      }
+      numVars = numVars - 1
+    }
+    return(summary(regressor))
+  }
+  
+  SL = 0.05
+  dataset = dataset[, c(1,2,3,4,5)]
+  backwardElimination(training_set, SL)
+
+
+S6A55 - Polynomial linear Regression Intuition
+
+Formula:
+y = b0 +b1x1 + b2x1² +....+bnx1n
+
+quando se usa polinomial regression:
+normalmente utilizada para demonstrar o crecimento de doenças ou populaçao....
+
+
+S6A57 - Polynomial Regression in Python Step1:
+Preparaçao do dataset
+Nao foi realizado split do data set pois o objectivo aqui é intuir se o salario que o empregado disse que estava ganhando na outra empresa é verdadeiro ou nao, a empresa anterior enviou os possiveis salaraios com base no cargo.
+
+
+S6A58 - Polynomial Regression in Python Step2:
+
+Aqui iremos criar 2 modelos:
+1) linear regression
+2) Polynomial regression
+
+Porque desses 2 modelos? Para poder comparar o resultado dos 2.
+
+# Fitting Simple Linear Regression to the Dataset
+from sklearn.linear_model import LinearRegression
+lin_reg = LinearRegression()
+lin_reg.fit(X,y)
+
+# Fitting Polynomial Regression to the Training set
+from sklearn.preprocessing import PolynomialFeatures
+poly_reg = PolynomialFeatures(degree = 2)
+X_poly = poly_reg.fit_transform(X)
+lin_reg2 = LinearRegression()
+lin_reg2.fit(X_poly, y)
+
+
+S6A59 - Polynomial Regression in Python Step3:
+
+Graphics with results(S6A59.odc)
+
+
+
+S6A60 - Polynomial Regression in Python Step4:
+
+# Predicting a new result with Linear Regression
+for_lin_pred = np.array(6.5).reshape(1,-1)
+lin_reg.predict(for_lin_pred)
+
+# Predicting a new result with Polynomial Regression
+lin_reg2.predict(poly_reg.fit_transform(for_lin_pred))
+
+
+
+S6A61 - Python Regression Template:
+Criaçao do template para usar nos modelos de Regreçao.
+
+S6A63 - Polynomial Regression in R Step1:
+
+S6A65 - Polynomial Regression in R Step4:
+# Predicting a new result with Linear Regression
+y_pred = predict(lin_reg, data.frame(Level = 6.5))
+
+# Predicting a new result with Polynomial Regression
+y_pred = predict(poly_reg, data.frame(Level = 6.5,
+                                      Level2 = 6.5^2,
+                                      Level3 = 6.5^3,
+                                      Level4 = 6.5^4))
+
+
+S6A66 - R Regression Template:
+
+
+S7A68 - 
+
