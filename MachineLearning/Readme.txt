@@ -678,6 +678,11 @@ regressor.fit(X,y)
 y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(np.array([[6.5]]))))
 
 
-
+S7A70 - SVR in R:
+#install.packages('e1071')
+library(e1071)
+regressor = svm(formula = Salary ~ .,
+                data = dataset,
+                type = 'eps-regression')
 
 
