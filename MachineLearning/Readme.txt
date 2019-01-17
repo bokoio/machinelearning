@@ -666,5 +666,18 @@ y_pred = predict(poly_reg, data.frame(Level = 6.5,
 S6A66 - R Regression Template:
 
 
-S7A68 - 
+S7A68 - Support Vector Regression
+
+SVR - Ver a aula de explicaçao novamente...
+
+S7A69 - SVR in Python:
+
+from sklearn.svm import SVR
+regressor = SVR(kernel = 'rbf')
+regressor.fit(X,y)
+y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(np.array([[6.5]]))))
+
+
+
+
 
