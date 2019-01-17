@@ -686,3 +686,25 @@ regressor = svm(formula = Salary ~ .,
                 type = 'eps-regression')
 
 
+
+S8A71 - Decision Tree  Regression Intuition
+
+Aula explicativa de como o algoritmo funciona.
+
+S8A73 - Decision Tree Regression In Python:
+
+#Decision Tree Regression
+
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor(random_state = 0)
+regressor.fit(X,y)
+
+
+S8A74 - Decision Tree Regression In R:
+library(rpart)
+regressor = rpart(formula = Salary ~ .,
+                  data = dataset,
+                  control = rpart.control(minsplit = 1))
+
+S9-A75 - Random Forest Regression Intuition:
+#Random Forest Regression

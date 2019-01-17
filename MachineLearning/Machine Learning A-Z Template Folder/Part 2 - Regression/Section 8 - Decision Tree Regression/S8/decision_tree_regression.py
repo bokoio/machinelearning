@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+#Decision Tree Regression
+
 #Regression Template
 #Importing the libraries
 import numpy as np
@@ -25,10 +25,11 @@ X_test = sc_X.transform(X_test)#aqui nao precisa fazer o fit somente transformar
 
 # Fitting Regression Model to the Training set
 # Create yor regressor here
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor(random_state = 0)
+regressor.fit(X,y)
 
-# Predicting a new result with Linear Regression
-
-# Predicting a new result with Polynomial Regression
+# Predicting a new result with Decision Tree Regression
 for_pred = np.array(6.5).reshape(1,-1)
 y_pred = regressor.predict(for_pred)
 
@@ -36,7 +37,7 @@ y_pred = regressor.predict(for_pred)
 # Visualising the Regression Results
 plt.scatter(X, y, color = 'red')
 plt.plot(X, regressor.predict(X), color = 'blue')
-plt.title('Truth or Bluff (SVR)')
+plt.title('Truth or Bluff (Decision Tree Regression)')
 plt.xlabel('Position Level')
 plt.ylabel('Salary')
 plt.show()
@@ -45,11 +46,11 @@ plt.show()
 
 
 # Visualising the Regression Results(for higher resolution and smooter curve)
-X_grid = np.arange(min(X), max(X), 0.1)
+X_grid = np.arange(min(X), max(X), 0.01)
 X_grid = X_grid.reshape((len(X_grid), 1))
 plt.scatter(X, y, color = 'red')
 plt.plot(X_grid, regressor.predict(X_grid), color = 'blue')
-plt.title('Truth or Bluff (Regression Model)')
+plt.title('Truth or Bluff (Decision Tree Regression)')
 plt.xlabel('Position Level')
 plt.ylabel('Salary')
 plt.show()
