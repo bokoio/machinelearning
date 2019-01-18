@@ -726,8 +726,13 @@ regressor.fit(X,y)
 
 
 
-
-
+S9-A77 - Random Forest Regression in R:
+install.packages('randomForest')
+library(randomForest)
+set.seed(1234)
+regressor = randomForest(x = dataset[1],
+                         y = dataset$Salary,
+                         ntree = 500)
 
 
 

@@ -1,3 +1,5 @@
+#Random Forest Regression
+
 # Regression Template ~
 #Importing the dataset
 dataset = read.csv('Position_Salaries.csv')
@@ -16,23 +18,19 @@ dataset = dataset[2:3]
 # training_set = scale(training_set)
 # test_set = scale(test_set)
 
-# Fitting Polynomial Regression to the Dataset
+# Random Forest Regression to the Dataset
 # Create Regressor here
+#install.packages('randomForest')
+library(randomForest)
+set.seed(1234)
+regressor = randomForest(x = dataset[1],
+                         y = dataset$Salary,
+                         ntree = 500)
+
 
 # Predicting a new result.
 y_pred = predict(regressor, data.frame(Level = 6.5))
 
-# Visualising the Regression Model Results.
-#install.packages('ggplot2')
-library(ggplot2)
-ggplot()+
-  geom_point(aes(x = dataset$Level , y = dataset$Salary),
-             color = 'red') +
-  geom_line(aes(x = dataset$Level , y = predict(regressor, newdata = dataset)),
-            color = 'blue')+
-  ggtitle('Truth or Bluff(Polynomial regression)') +
-  xlab('Level') +
-  ylab('Salary')
 
 # Visualising the Regression Model Results (for higher resolution and smoother curve).
 # install.packages('ggplot2')
