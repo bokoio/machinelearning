@@ -52,3 +52,5 @@ ggplot() +
   ggtitle('Truth or Bluff (Decision Tree Regression)') +
   xlab('Level') +
   ylab('Salary')
+plot(regressor)
+text(regressor)

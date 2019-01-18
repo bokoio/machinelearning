@@ -708,3 +708,26 @@ regressor = rpart(formula = Salary ~ .,
 
 S9-A75 - Random Forest Regression Intuition:
 #Random Forest Regression
+Step 1: Pick a random K data points from the Training set.
+Step 2: Build the Decision Tree associated to these K data points.
+Step 3: Choose the number NTree of trees you want to build and repeat steps 1 & 2
+Step 4: For a new data point, make each one of your NTree trees predict the value of Y to for 
+the data point in question, and assign the new data point the average across all of the predicted Y values.
+
+
+
+S9-A77 - Random Forest Regression in Python:
+
+
+from sklearn.ensemble import RandomForestRegressor
+regressor = RandomForestRegressor(n_estimators=100, random_state=0)
+regressor.fit(X,y)
+
+
+
+
+
+
+
+
+
