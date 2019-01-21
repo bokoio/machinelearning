@@ -865,3 +865,10 @@ classifier = glm(formula = Purchased ~ .,
                  family = binomial,
                  data = training_set)
 
+S12A95 - Logistc Regression in R - Step3:
+
+# Predicting the Test set Results
+
+prob_preb = predict(classifier, type = 'response', newdata = test_set[-3])
+#conversao para 0 e 1 das probabilidades geradas
+y_pred = ifelse(prob_preb >0.5,1, 0)

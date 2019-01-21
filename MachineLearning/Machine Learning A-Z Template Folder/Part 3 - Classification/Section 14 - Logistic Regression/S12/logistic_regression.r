@@ -18,9 +18,17 @@ test_set[, 1:2] = scale(test_set[, 1:2])
 
 # Fitting the Logistc Regression to the Training set
 
-classifier = glm(formula = Purchased ~.,
+classifier = glm(formula = Purchased ~ .,
                  family = binomial,
                  data = training_set)
+
+# Predicting the Test set Results
+prob_preb = predict(classifier, type = 'response', newdata = test_set[-3])
+#conversao para 0 e 1 das probabilidades geradas
+
+
+
+
 
 
 
