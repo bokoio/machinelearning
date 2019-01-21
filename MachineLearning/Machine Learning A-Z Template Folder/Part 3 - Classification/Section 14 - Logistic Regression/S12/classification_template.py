@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Mon Jan 21 14:32:06 2019
+
+@author: pippo
+"""
+
+# Classification template
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Mon Jan 21 12:15:06 2019
 
 @author: Felipe Nedeff
@@ -28,10 +38,12 @@ from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train) 
 X_test = sc_X.transform(X_test)
-# Fitting Logistic Regression to the Training set
-from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression(random_state=0)
-classifier.fit(X_train, Y_train)
+
+# Fitting the Classifier to the Training set
+# Create your classifier here
+
+
+
 
 # Predicting the Test set Results
 y_pred = classifier.predict(X_test)

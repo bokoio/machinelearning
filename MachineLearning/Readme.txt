@@ -801,9 +801,67 @@ from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression(random_state=0)
 classifier.fit(X_train, Y_train)
 
-S12A88 - Logistc Regression in Python - Step3:
+S12A89 - Logistc Regression in Python - Step3:
 
 
 # Predicting the Test set Results
 
 y_pred = classifier.predict(X_test)
+
+
+S12A90 - Logistc Regression in Python - Step4:
+
+# Making the Confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(Y_test, y_pred)
+
+
+cm = array([[65,  3],
+            [ 8, 24]])
+65 e 24 previsoes corretas contra 3 e 8 previsoes incorretas.
+
+S12A91 - Logistc Regression in Python - Step5:
+
+# Visualising the Training set results
+
+A previsao é para ver se o produto sera ou nao aceito
+
+O lado verde e os pontos verdes sao os que comprariam o SUV e o vermelho sao os que nao comprariam.
+
+imagem do grafico na pasta da aula.
+
+
+S12A92 - Classification Template in Python:
+# Classification template
+
+Criaçao do template para os classifiers.
+
+
+S12A93 - Logistc Regression in R - Step1:
+
+# Logistc Regression
+
+#Importing the dataset
+dataset = read.csv('Social_Network_Ads.csv')
+dataset = dataset[, 3:5]
+
+#Spliting the Datase into The Training set and Test set:
+#install.packages('caTools')
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+
+# Feature Scaling
+training_set[, 1:2] = scale(training_set[, 1:2])
+test_set[, 1:2] = scale(test_set[, 1:2])
+
+S12A94 - Logistc Regression in R - Step2:
+
+# Fitting the Logistc Regression to the Training set
+
+classifier = glm(formula = Purchased ~ .,
+                 family = binomial,
+                 data = training_set)
+
