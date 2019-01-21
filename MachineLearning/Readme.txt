@@ -874,7 +874,7 @@ y_pred = ifelse(prob_preb >0.5,1, 0)
 
 
 S12A96 - Logistc Regression in R - Step4:
-# Making the Confusion Matrix
+# Making_the_Confusion_Matrix
 
 cm = table(test_set[,3], y_pred)
 cm result:
@@ -884,3 +884,5 @@ cm result:
   1| 10|26
 
 57 e 26 sao as previsoes corretas e o 7 e 10 sao as previsao incorrectas
+
+S12A97 - Logistc Regression in R - Step5:
