@@ -736,3 +736,68 @@ regressor = randomForest(x = dataset[1],
 
 
 
+S10A79 - R-Squared Intuition:
+Formula:
+SSres = SUM(Yi - Y^i)²
+SStot = SUM(Yi - Yavg)²
+R² = 1 - SSres / SStot
+
+O resultado quanto mais perto do 1 melhor.
+
+
+S10A80 - Ajusted R-Squared Intuition:
+p = numero de regreçoes (independent variables)
+n - sample size
+R² = 1 - ( 1 - R²) n-1 / n- p -1
+
+
+No modelo de Reduce onde as variaveis sao elimindas, o valor que deve ser levado em conta
+tambem é o valor do Adjusted R-squared e nao somente o P
+Pois é um valor muito relevante. Se ao remover uma variavel o valor do Adjusted R-squared diminuir é sinal de que o modelo esta ficando ruim.
+
+S12A85 - Logistic Regression Intuition:
+as sessoes 10 e 11 foram somente texto explicativos a respeito do que ira ser construido da sessao 12 em diante.
+
+Formula:
+ln(p/1-p)= B0 + B1*X
+Logistic Regression Curve.png
+Essa formula é utilizada para prever probabilidades.
+Logistic Regression Curve_P.png
+A previsao trassadno uma linha no meio da linha Y... podemos gerar a previsao e nao mais trabalhar com a probabilidade.
+Logistic Regression Curve_Y.png
+
+S12A87 - Logistc Regression in Python - Step1:
+
+# Logistic Regression
+
+Preparaçao dos dados:
+
+#Importing the libraries
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+#Importing the DataSet
+dataset = pd.read_csv('Social_Network_Ads.csv')
+X = dataset.iloc[:, [2, 3]].values
+y = dataset.iloc[:, 4].values
+
+#Spliting the Datase into The Training set and Test set:
+from sklearn.model_selection import train_test_split
+X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size=0.25, random_state = 0)
+
+#Feature Scaling
+
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train) 
+
+
+S12A88 - Logistc Regression in Python - Step2:
+
+
+# Fitting Logistic Regression to the Training set
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state=0)
+classifier.fit(X_train, Y_train)
+
