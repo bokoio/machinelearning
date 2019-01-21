@@ -801,3 +801,9 @@ from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression(random_state=0)
 classifier.fit(X_train, Y_train)
 
+S12A88 - Logistc Regression in Python - Step3:
+
+
+# Predicting the Test set Results
+
+y_pred = classifier.predict(X_test)
