@@ -25,9 +25,9 @@ classifier = glm(formula = Purchased ~ .,
 # Predicting the Test set Results
 prob_preb = predict(classifier, type = 'response', newdata = test_set[-3])
 #conversao para 0 e 1 das probabilidades geradas
+y_pred = ifelse(prob_preb >0.5,1, 0)
 
-
-
+# Making the Confusion Matrix
 
 
 
