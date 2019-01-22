@@ -886,3 +886,51 @@ cm result:
 57 e 26 sao as previsoes corretas e o 7 e 10 sao as previsao incorrectas
 
 S12A97 - Logistc Regression in R - Step5:
+# Visualising the Training set results
+
+
+S12A98 - Classification Template in R:
+Criado o template...
+
+S13A99 - K-NN Intuition
+K-NN = K-Nearest Neighbor
+
+Step1:) Choose the number K of neighbors
+Step2:) Take the K nearest neighbors of the new data point according to the Euclidean distance
+Step3:) Among these K neighbors, count the number of data points in each category
+Step4:) Assing the new data point to the category where you counted the most neighbors
+Model is Ready...
+
+K-NN_Before.PNG
+K-NN_After.PNG
+Euclidean_Distance.PNG
+
+S13A101 - K-NN Intuition in Python:
+#K-Nearest Neighbor (K-NN)
+Non Linear Classification
+from sklearn.neighbors import KNeighborsClassifier
+classifier = KNeighborsClassifier(n_neighbors=5,p=2, metric='minkowski')
+classifier.fit(X_train, y_train)
+
+S13A102 - K-NN Intuition in R:
+library(class)
+y_pred = knn(train = training_set[, -3], 
+             test = test_set[, -3],
+             cl = training_set[, 3],
+             k = 5)
+
+
+S14A103 - SVN Intuition:
+
+
+
+
+
+
+
+
+
+
+
+
+
