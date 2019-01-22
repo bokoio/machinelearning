@@ -920,14 +920,37 @@ y_pred = knn(train = training_set[, -3],
              k = 5)
 
 
-S14A103 - SVN Intuition:
+S14A104 - Support Vector Machine (SVN) Intuition:
+
+Video de explicaçao como funciona esse metodo.
 
 
+S14A105 - Support Vector Machine (SVN) In Python:
+
+# Support Vector Machine (SVN)
+
+Os graficos gerados sao lineares porque foi usado o paramentro para gerar um grafico linear:
+from sklearn.svm import SVC
+classifier = SVC(kernel='linear', random_state=0)
+classifier.fit(X_train, Y_train)
+
+Esse modulo aceita outros parametros:
+
+kernel : string, optional (default='rbf')
+Specifies the kernel type to be used in the algorithm. It must be one of 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed' or a callable. 
+If none is given, 'rbf' will be used. If a callable is given it is used to pre-compute the kernel matrix from data matrices; that matrix should be an array of shape (n_samples, n_samples).
 
 
+S14A106 - Support Vector Machine (SVN) In R:
+
+library(e1071)
+classifier = svm(formula = Purchased  ~ .,
+                 data = training_set,
+                 type = 'C-classification',
+                 kernel = 'linear')
 
 
-
+S14A107 - :
 
 
 
