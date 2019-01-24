@@ -925,9 +925,9 @@ S14A104 - Support Vector Machine (SVN) Intuition:
 Video de explicaçao como funciona esse metodo.
 
 
-S14A105 - Support Vector Machine (SVN) In Python:
+S14A105 - Support Vector Machine (SVM) In Python:
 
-# Support Vector Machine (SVN)
+# Support Vector Machine (SVM)
 
 Os graficos gerados sao lineares porque foi usado o paramentro para gerar um grafico linear:
 from sklearn.svm import SVC
@@ -950,7 +950,9 @@ classifier = svm(formula = Purchased  ~ .,
                  kernel = 'linear')
 
 
-S14A107 - :
+S15A107 - Kernel SVM Intuition:
+
+
 
 
 
