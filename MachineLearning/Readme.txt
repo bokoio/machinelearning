@@ -941,7 +941,7 @@ Specifies the kernel type to be used in the algorithm. It must be one of 'linear
 If none is given, 'rbf' will be used. If a callable is given it is used to pre-compute the kernel matrix from data matrices; that matrix should be an array of shape (n_samples, n_samples).
 
 
-S14A106 - Support Vector Machine (SVN) In R:
+S14A106 - Support Vector Machine (SVM) In R:
 
 library(e1071)
 classifier = svm(formula = Purchased  ~ .,
@@ -952,6 +952,46 @@ classifier = svm(formula = Purchased  ~ .,
 
 S15A107 - Kernel SVM Intuition:
 
+Usado quando nao é possivel usar um algoritmo linear, nos dados.
+
+
+S15A108 - Mapping to a Higher Dimensional Space
+
+Mapping_Higher_Dimension
+
+S15A109 - Kernel Trick 
+
+the_gaussina_rbf_kernel.png
+the_gaussina_rbf_kernel...
+
+
+S15A110 -  Types of Kernel Functions:
+
+Gaussion RBF Kernel
+Sigmoid Kernel
+Polynomial Kernel
+
+
+Types_of_Kernel.png
+
+MachineLearning/Downloads_zip/Kernels-svm/
+
+S15A112 - Kernel SVM(rbf) in Python:
+
+from sklearn.svm import SVC
+classifier = SVC(kernel = 'rbf', random_state = 0)
+classifier.fit(X_train, Y_train)
+
+
+S15A113 - Kernel SVM in R:
+library(e1071)
+classifier = svm(formula = Purchased ~.,
+                 data = training_set,
+                 type='C-classification', 
+                 kernel='radial')
+
+
+S16114 - Bayes Theorem
 
 
 
@@ -959,3 +999,5 @@ S15A107 - Kernel SVM Intuition:
 
 
 
+
+TDCH

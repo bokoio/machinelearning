@@ -1,0 +1,4 @@
+nao é nem python nem R é em Julia, so pra ver algumas formulas e graficos possiveis de serem utilizados do Kernel SVM
+
+Machine learning kernels in Julia
+https://github.com/trthatcher/MLKernels.jl/blob/7229ff1c9a9c4aa56cbe0055df5e34f44eaa1a10/doc/kernels.rst
