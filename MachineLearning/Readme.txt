@@ -993,6 +993,62 @@ classifier = svm(formula = Purchased ~.,
 
 S16114 - Bayes Theorem
 
+Spanners
+Duas maquinas produzem a mesma ferramente uma chave inglesa(spanners/wrenches) porem cada maquina marca cada uma das peças criadas.
+O problema apresentado é de apos um tempo de produçao prever a probabilidade da maquina 2 produzir peças defeituosas.
+
+A formula para calcular essa probabilidade:
+P(A|B) = P(B|A) * P(A) / P(B)
+
+------
+A maquina 1 produz 30 peças por hora 
+A maquina 2 produz 20 peças por hora 
+De toda a produçao, 1% das peças sao defeituosas
+e 50% das peças defeituosas foi produzida pela Machina 1 
+e os outros 50% das peças pela maquina 2
+
+P(Maquina1)=30/50=0.6
+P(Maquina2)=20/50=0.4
+P(Defeito) = 1%
+P(Maquina1 | Defeito) = 50%
+P(Maquina2 | Defeito) = 50%
+P(Defeito | Maquina2) = ?
+
+
+P(A|B) = P(B|A) * P(A) / P(B)
+P(Defeito | Maquina2)=P(Maquina2 | Defeito) * P(Defeito) / P(Maquina2)
+
+P(Defeito | Maquina2) = 0.5 * 0.01 /0.4 = 0.0125 = 1.25%
+
+Dados que exemplificam a formula:
+_ 1000 Peças produzidas
+_ 400 Peças foram produzidas pela Machina 2
+_ 1% das 1000 sao defeituosas = 10 peças defeituosas
+_ 50% das peças defeituosas vieram da maquina 2 = 5 peças
+_ Percentual de peças defeituosas produzidas pela maqina 2 = 5/400 = 1.25%
+
+S16115 - Naive Bayes Classifier Intuition
+
+Exemplo do empregado que ira ao trabalho caminhando ou de carro.
+
+
+
+
+S16119 - Naive Bayes In Python:
+
+# Naive Bayes
+
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
+classifier.fit(X_train, Y_train)
+
+S16120 - Naive Bayes In R:
+
+
+
+library(e1071)
+classifier = naiveBayes(x = training_set[-3], 
+                        y = training_set$Purchased)
 
 
 
@@ -1000,4 +1056,4 @@ S16114 - Bayes Theorem
 
 
 
-TDCH
+

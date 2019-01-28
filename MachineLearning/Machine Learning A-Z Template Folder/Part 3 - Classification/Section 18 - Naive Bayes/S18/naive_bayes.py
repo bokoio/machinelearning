@@ -1,12 +1,12 @@
-# Classification template
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 21 12:15:06 2019
+Created on Mon Jan 28 17:10:27 2019
 
-@author: Felipe Nedeff
+@author: pippo
 """
+
+# Naive Bayes
 
 
 #Importing the libraries
@@ -31,7 +31,9 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 
 # Fitting the Classifier to the Training set
-# Create your classifier here
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
+classifier.fit(X_train, Y_train)
 
 
 
@@ -55,7 +57,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Logistic Regression (Training set)')
+plt.title('Naive Bayes (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -74,7 +76,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Logistic Regression (Test set)')
+plt.title('Naive Bayes (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
