@@ -991,7 +991,7 @@ classifier = svm(formula = Purchased ~.,
                  kernel='radial')
 
 
-S16114 - Bayes Theorem
+S16A114 - Bayes Theorem
 
 Spanners
 Duas maquinas produzem a mesma ferramente uma chave inglesa(spanners/wrenches) porem cada maquina marca cada uma das peças criadas.
@@ -1027,14 +1027,14 @@ _ 1% das 1000 sao defeituosas = 10 peças defeituosas
 _ 50% das peças defeituosas vieram da maquina 2 = 5 peças
 _ Percentual de peças defeituosas produzidas pela maqina 2 = 5/400 = 1.25%
 
-S16115 - Naive Bayes Classifier Intuition
+S16E115 - Naive Bayes Classifier Intuition
 
 Exemplo do empregado que ira ao trabalho caminhando ou de carro.
 
 
 
 
-S16119 - Naive Bayes In Python:
+S16A119 - Naive Bayes In Python:
 
 # Naive Bayes
 
@@ -1050,6 +1050,44 @@ library(e1071)
 classifier = naiveBayes(x = training_set[-3], 
                         y = training_set$Purchased)
 
+
+S17A121 - Decision Tree Classification Intuition
+
+Ver aula explicativa, se tiver duvida.
+
+S17A123 - Decision Tree Classification In Python
+
+# Decision Tree Classification
+
+
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
+classifier.fit(X_train, Y_train)
+
+
+S17A124 - Decision Tree Classification In R
+
+
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier(criterion = 'entropy', random_state = 0)
+classifier.fit(X_train, Y_train)
+
+
+S18A125 - Random Forest Classification
+
+Aula teorica...
+
+
+S18A127 - Random Forest Classification In Python
+
+# Random Forest Classification
+
+from sklearn.ensemble import RandomForestClassifier
+classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
+classifier.fit(X_train, Y_train)
+
+
+S18A128 - Random Forest Classification In R
 
 
 
