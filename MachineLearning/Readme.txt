@@ -1091,6 +1091,54 @@ S18A128 - Random Forest Classification In R
 
 
 
+library(randomForest)
+classifier = randomForest(x=training_set[-3], 
+                          y=training_set$Purchased,
+                          ntree = 10)
+
+
+S21 - Clustering
+
+Machine Learning Clustering models:
+
+1) K-Means Clustering
+2) Hierarchical Clustering
+
+
+S21A136 - K-Means Clustering Intuition
+
+K-Means Agrupa os dados. Img= k_means_clustering.PNG
+E como funciona: Img= k_means_clustering_1.PNG
+
+Para cada step da imagem k_means_clustering_1.PNG esta sendo exemplificado nas imagens abaixo
+
+k_means_clustering_step1.PNG
+k_means_clustering_step2.PNG
+k_means_clustering_step3.PNG
+k_means_clustering_step4.PNG
+k_means_clustering_step5.PNG
+k_means_clustering_fin.PNG
+
+
+
+S21A137 - K-Means Clustering Intuition Trap
+
+
+
+Veja o video
+
+
+
+S21A138 - K-Means Selecting the number of clusters
+
+
+
+
+
+S21A140 - K-Means Clustering in Python:
+
+
+
 
 
 

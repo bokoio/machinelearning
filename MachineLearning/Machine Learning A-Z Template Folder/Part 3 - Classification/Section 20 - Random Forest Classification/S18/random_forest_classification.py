@@ -32,7 +32,8 @@ X_test = sc_X.transform(X_test)
 # Fitting the Random Forest Classification to the Training set
 # Create your classifier here
 from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy')
+classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
+classifier.fit(X_train, Y_train)
 
 
 # Predicting the Test set Results
