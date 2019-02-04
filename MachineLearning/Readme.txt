@@ -1137,7 +1137,60 @@ S21A138 - K-Means Selecting the number of clusters
 
 S21A140 - K-Means Clustering in Python:
 
+Problema proposto:
+Um cartao fidelidade de uma loja.
+que contem os dados de genero, idade, gastos anuais e um score(1-100) com base no que foi gasto.
 
+Devemos adivinhar o score e o quanto sera gasto.
+
+O numero de cluster optimal 
+para esse exemplo é 5
+Elbow_number_of_clusters.png
+
+#using the elbow method to find the optimal numbers of clusters
+from sklearn.cluster import KMeans
+wcss = []
+for i in range(1,11):
+    kmeans = KMeans(n_clusters = i, init = 'k-means++', max_iter = 300, n_init = 10, random_state = 0)
+    kmeans.fit(X)
+    wcss.append(kmeans.inertia_)
+plt.plot(range(1,11), wcss)
+plt.title('The Elbow Method')
+plt.xlabel('Number of clusters')
+plt.ylabel('WCSS')
+plt.show()
+
+
+
+
+S21A141 - K-Means Clustering in R:
+
+dataset <- read.csv('Mall_Customers.csv')
+X <- dataset[4:5]
+
+# Using the elbow method to find the optimal numbers of clusters
+set.seed(6)
+wcss <- vector()
+for (i in 1:10) wcss[i] <- sum(kmeans(X, i)$withinss)
+plot(1:10, wcss, type = "b", main = paste('Cluster of clients'), xlab = "Number of clusters", ylab = "WCSS")
+
+# applying k-means to the mall dataset
+set.seed(29)
+kmeans <- kmeans(X,5,iter.max = 300,nstart=10)
+
+# Visualising the cluster
+library(cluster)
+clusplot(X,
+         kmeans$cluster,
+         lines = 0,
+         shade = TRUE,
+         color = TRUE,
+         labels = 2,
+         plotchar = FALSE,
+         span = TRUE,
+         main = paste('Cluster of Clients'),
+         xlab = "Annual Income",
+         ylab = "Spending Score" )
 
 
 
