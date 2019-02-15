@@ -1193,6 +1193,80 @@ clusplot(X,
          ylab = "Spending Score" )
 
 
+S22A142 HC Intuition (Hierarchical Clustering Intuition)
+
+2 Tipo de HC
+Agglomerative e Divisive
+Vai ser usado o Agglomerative
+
+*Ter sempre presente as palavras closest clusters sao as chaves para esse modelo.
+
+
+Para os exemplos utilizados iremos usar a Euclidean Distance para calcular a distancia entre os clusters.
+
+Como verificar a distancia entre os 2 clusters:
+Closest Points (dos pontos mais proximos)
+Furthest Points (dos pontos mais distantes)
+Average Distance(a media entre todos os pontos)
+Distance between centroids (do centro de cada um dos clusters)
 
 
 
+S22A142 - Hierarchical Clustering How Dedograms Work 
+
+Bem maluko...mas legal algoritmo... vale a pena ver de novo...
+
+
+
+S22A146 - HC in Python - Step1:
+
+Separa em grupos os clients do shopping
+
+So a importaçao e a separaçao dos valores na variavel X
+
+
+S22A147 - HC in Python - Step2:
+
+Dedograms para separar os grupos.
+
+5 Sao os grupos encontrados e è o numero optimal de clusters para o Kmean, essa é a outra forma de encontrar o numero de clusters para o modelo kmean.
+
+
+S22A148 - HC in Python - Step3:
+
+Fit HC to the mall dataset
+
+
+S22A149 - HC in Python - Step4:
+
+Visualising the clusters
+
+
+S22A150 - HC in Python - Step5:
+
+Explicaçao do resultado.
+
+Para usar esse modelo em um problema meu, seria somente mudar a fonte dos dados pd.read_csv
+as colunas desejadas no codigo dataset.iloc[....].values.
+Usar somente em clusters de 2 dimençoes.
+
+
+
+
+
+S22A151 - HC in R - Step1:
+#Importing the dataset
+
+
+S22A152 - HC in R - Step2:
+# Using the Dedograms to find the optimal number of clusters:
+
+S22A153 - HC in R - Step3:
+#Fitting HC to the mall dataset
+
+S22A154 - HC in R - Step4:
+#Visualising HC on the clusters
+
+S22A155 - HC in R - Step5:
+
+Explicaçao do resultado
