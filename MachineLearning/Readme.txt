@@ -1252,8 +1252,6 @@ Usar somente em clusters de 2 dimençoes.
 
 
 
-
-
 S22A151 - HC in R - Step1:
 #Importing the dataset
 
@@ -1270,3 +1268,29 @@ S22A154 - HC in R - Step4:
 S22A155 - HC in R - Step5:
 
 Explicaçao do resultado
+
+
+Seção 23, aula 157
+Welcome to Part 5 - Association Rule Learning!
+
+People who bought also bought ... That is what Association Rule Learning will help us figure out!
+
+In this part, you will understand and learn how to implement the following Association Rule Learning models:
+
+1)Apriori
+2)Eclat
+
+
+
+
+S24A158 - Aprior Intuition
+
+Explicaçao das compras de fraldas e as cervejas juntas.
+
+
+ "People who bought also bought" é a respeito disso que esse algoritmo trata.
+
+
+
+
+
